@@ -44,3 +44,18 @@ def category2():
         description="Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
         products=[Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)],
     )
+
+
+@pytest.fixture
+def new_product():
+    return {
+        "name": "Samsung Galaxy S23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 180000.0,
+        "quantity": 5,
+    }
+
+
+@pytest.fixture
+def new_price(category1):
+    return new_price == 180000.0
