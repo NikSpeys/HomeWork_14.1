@@ -16,7 +16,7 @@ class Category:
 
     def add_product(self, product):  # метод дл добавлени атрибута  в продукт
         self.__products.append(product)
-        self.__product_count += 1
+        self.product_count += 1
 
     @property
     def products(self):
