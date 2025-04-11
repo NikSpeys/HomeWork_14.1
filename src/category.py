@@ -12,11 +12,11 @@ class Category:
         self.__products = products
         Category.category_count += 1
         Category.product_count += len(products)
-        self.__product_count = 0
 
-    def add_product(self, product):  # метод дл добавлени атрибута  в продукт
+
+    def add_product(self, product):  # метод дл добавления атрибута  в продукт
         self.__products.append(product)
-        self.product_count += 1
+        Category.product_count += 1
 
     @property
     def products(self):
