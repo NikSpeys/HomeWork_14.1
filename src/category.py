@@ -14,7 +14,7 @@ class Category:
         Category.product_count += len(products)
 
 
-    def add_product(self, product):  # метод дл добавлени атрибута  в продукт
+    def add_product(self, product):  # метод дл добавления атрибута  в продукт
         self.__products.append(product)
         Category.product_count += 1
 
