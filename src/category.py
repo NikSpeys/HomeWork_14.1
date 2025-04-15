@@ -1,3 +1,7 @@
+from itertools import product
+
+from src.product import Product
+
 class Category:
     name: str
     description: str
@@ -12,6 +16,14 @@ class Category:
         self.__products = products
         Category.category_count += 1
         Category.product_count += len(products)
+
+
+    def __str__(self):
+        total_quantity_products = 0
+        for item in self.__products:
+            total_quantity_products += item.quantity
+
+        return f'Название категории: {self.name}, количество продуктов: {total_quantity_products} шт\n'
 
 
     def add_product(self, product):  # метод дл добавлени атрибута  в продукт
