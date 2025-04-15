@@ -59,3 +59,7 @@ def new_product():
 @pytest.fixture
 def new_price(category1):
     return new_price == 180000.0
+
+@pytest.fixture
+def product_str():
+    return Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)

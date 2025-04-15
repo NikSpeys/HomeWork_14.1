@@ -35,3 +35,16 @@ def test_price_setter():
 
     product.price = 12000.00
     assert product.price == 12000.00
+
+
+def test_str_method():
+    product = Product("Клавиатура", "Механическая клавиатура", 10000.00, 30)
+    assert product.name == 'Клавиатура'
+    assert product.price == 10000.00
+    assert product.quantity == 30
+
+def test_product(product_str):
+    print(product_str) #Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.
+    assert product_str.name == 'Samsung Galaxy S23 Ultra'
+    assert product_str.price == 180000.0
+    assert product_str.quantity == 5
