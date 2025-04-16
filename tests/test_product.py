@@ -48,3 +48,9 @@ def test_product(product_str):
     assert product_str.name == 'Samsung Galaxy S23 Ultra'
     assert product_str.price == 180000.0
     assert product_str.quantity == 5
+
+
+def test_add_products(product1, product3):
+    total_value = product1 + product3
+    expected_value = (180000.0 * 5) + (31000.0 * 14)
+    assert total_value == expected_value

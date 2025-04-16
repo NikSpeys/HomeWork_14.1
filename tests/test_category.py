@@ -43,3 +43,15 @@ def test_str():
 def test_str_price():
     product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
     assert product3.price == 31000.0
+
+
+def test_new_product(product_dict, product4):
+    product4 = Product.new_product(product_dict)
+    assert product4.name == "Стиральная машина"
+    assert product4.description == "Описание Стиральной машины"
+    assert product4.price == 23450.00
+    assert product4.quantity == 5
+
+def test_add_product(product1, category3):
+    category3.add_product(product1)
+    assert category3.product_count == 9
