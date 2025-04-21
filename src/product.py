@@ -1,3 +1,6 @@
+import pytest
+
+
 class Product:
     name: str
     description: str
@@ -10,10 +13,17 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт.\n"
+
+    def __add__(self, other):
+        if type(other) is Product:
+            return self.__price * self.quantity + other.__price * other.quantity
+        raise TypeError
+
     @classmethod
     def new_product(cls, new_product: dict):
         return cls(**new_product)
-
 
     @property
     def price(self):
