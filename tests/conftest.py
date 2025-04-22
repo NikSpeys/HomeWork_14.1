@@ -103,3 +103,8 @@ def grass1():
 @pytest.fixture
 def grass2():
     return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+
+
+@pytest.fixture
+def product5():
+    return Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)

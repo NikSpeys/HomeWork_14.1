@@ -1,4 +1,8 @@
-class Product:
+from src.baseproduct import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(PrintMixin, BaseProduct):
     name: str
     description: str
     price: float
