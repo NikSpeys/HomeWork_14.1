@@ -1,3 +1,5 @@
+import pytest
+
 from src.product import Product
 
 
@@ -35,3 +37,38 @@ def test_price_setter():
 
     product.price = 12000.00
     assert product.price == 12000.00
+
+
+def test_str_method():
+    product = Product("Клавиатура", "Механическая клавиатура", 10000.00, 30)
+    assert product.name == "Клавиатура"
+    assert product.price == 10000.00
+    assert product.quantity == 30
+
+
+def test_product(product_str):
+    print(product_str)  # Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.
+    assert product_str.name == "Samsung Galaxy S23 Ultra"
+    assert product_str.price == 180000.0
+    assert product_str.quantity == 5
+
+
+def test_add_products(product1, product3):
+    total_value = product1 + product3
+    expected_value = (180000.0 * 5) + (31000.0 * 14)
+    assert total_value == expected_value
+
+
+def test_product_type_error(product1):
+    with pytest.raises(TypeError):
+        product1 + "Не продукт"
+
+
+def test_product_type_error(product1):
+    with pytest.raises(TypeError):
+        product1 + "Не продукт"  # noqa
+
+
+def test_product_value_error():
+    with pytest.raises(ValueError):
+        product_invalid = Product("Бракованный товар", "Неверное количество", 1000.0, 0)

@@ -1,4 +1,8 @@
-class Product:
+from src.baseproduct import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(PrintMixin, BaseProduct):
     name: str
     description: str
     price: float
@@ -9,11 +13,23 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        if self.quantity >= 1:
+            self.quantity = quantity
+        else:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
+        super().__init__()
+
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт.\n"
+
+    def __add__(self, other):
+        if type(other) is Product:
+            return self.__price * self.quantity + other.__price * other.quantity
+        raise TypeError
 
     @classmethod
     def new_product(cls, new_product: dict):
         return cls(**new_product)
-
 
     @property
     def price(self):

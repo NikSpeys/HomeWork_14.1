@@ -1,3 +1,6 @@
+from src.product import Product
+
+
 class Category:
     name: str
     description: str
@@ -12,11 +15,20 @@ class Category:
         self.__products = products
         Category.category_count += 1
         Category.product_count += len(products)
-        self.__product_count = 0
 
-    def add_product(self, product):  # метод дл добавлени атрибута  в продукт
-        self.__products.append(product)
-        self.product_count += 1
+    def __str__(self):
+        total_quantity_products = 0
+        for item in self.__products:
+            total_quantity_products += item.quantity
+
+        return f"Название категории: {self.name}, количество продуктов: {total_quantity_products} шт\n"
+
+    def add_product(self, product):
+        if not isinstance(product, Product):
+            raise TypeError
+        else:
+            self.__products.append(product)
+        Category.product_count += 1
 
     @property
     def products(self):
@@ -24,3 +36,19 @@ class Category:
         for item in self.__products:
             list_products += f"Название продукта {item.name}, {item.price} руб. Остаток {item.quantity}\n"
         return list_products
+
+    def middle_price(self) -> float:
+        total_price = 0
+        total_quantity = 0
+
+        try:
+            for product in self.__products:
+                total_price += product.price * product.quantity
+                total_quantity += product.quantity
+
+            avg = total_price / total_quantity
+            return round(avg, 2)
+
+        except ZeroDivisionError:
+            print("Нет товаров для расчета средней цены.")
+            return 0
