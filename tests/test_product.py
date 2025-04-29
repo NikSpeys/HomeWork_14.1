@@ -63,9 +63,10 @@ def test_product_type_error(product1):
     with pytest.raises(TypeError):
         product1 + "Не продукт"
 
+
 def test_product_type_error(product1):
     with pytest.raises(TypeError):
-        product1 + "Не продукт" # noqa
+        product1 + "Не продукт"  # noqa
 
 
 def test_product_value_error():

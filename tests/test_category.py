@@ -66,6 +66,7 @@ def test_category_type_error(category1):
     with pytest.raises(TypeError):
         category1.add_product(1)
 
+
 def test_category_type_error(category1):
     with pytest.raises(TypeError):
         category1.add_product(1)
