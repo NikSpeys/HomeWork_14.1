@@ -36,3 +36,19 @@ class Category:
         for item in self.__products:
             list_products += f"Название продукта {item.name}, {item.price} руб. Остаток {item.quantity}\n"
         return list_products
+
+    def middle_price(self) -> float:
+        total_price = 0
+        total_quantity = 0
+
+        try:
+            for product in self.__products:
+                total_price += product.price * product.quantity
+                total_quantity += product.quantity
+
+            avg = total_price / total_quantity
+            return round(avg, 2)
+
+        except ZeroDivisionError:
+            print("Нет товаров для расчета средней цены.")
+            return 0

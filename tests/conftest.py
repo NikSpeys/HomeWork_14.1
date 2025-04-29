@@ -5,6 +5,12 @@ from src.lawngrass import LawnGrass
 from src.product import Product
 from src.smartphone import Smartphone
 
+@pytest.fixture
+def all_products():
+    product1 = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7)
+    product2 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+    return [product1, product2, product3]
 
 @pytest.fixture
 def product1():
