@@ -65,3 +65,15 @@ def test_add_product(product1, category3):
 def test_category_type_error(category1):
     with pytest.raises(TypeError):
         category1.add_product(1)
+
+def test_category_type_error(category1):
+    with pytest.raises(TypeError):
+        category1.add_product(1)
+
+
+def test_middle_price(all_products):
+    category1 = Category(name="тест", description="тест", products=all_products)
+    assert category1.middle_price() == 84423.08
+
+    category2 = Category(name="тест", description="тест", products=[])
+    assert category2.middle_price() == 0

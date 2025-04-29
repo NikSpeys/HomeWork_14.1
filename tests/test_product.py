@@ -62,3 +62,12 @@ def test_add_products(product1, product3):
 def test_product_type_error(product1):
     with pytest.raises(TypeError):
         product1 + "Не продукт"
+
+def test_product_type_error(product1):
+    with pytest.raises(TypeError):
+        product1 + "Не продукт" # noqa
+
+
+def test_product_value_error():
+    with pytest.raises(ValueError):
+        product_invalid = Product("Бракованный товар", "Неверное количество", 1000.0, 0)
